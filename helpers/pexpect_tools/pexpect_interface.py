@@ -96,6 +96,7 @@ def run_pexpect_interface():
 
         interfaces["interface"].append(interface_data_filter)
 
-    print(json.dumps(interfaces,indent=4))
+    #print(json.dumps(interfaces,indent=4))
+    return interfaces
 
-run_pexpect_interface()
+#run_pexpect_interface()
