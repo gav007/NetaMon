@@ -1,5 +1,6 @@
 # Modules
 import sys
+import time
 
 # Sub interface Tools
 
@@ -24,53 +25,79 @@ from helpers.pexpect_tools.pexpect_file_out import pexpect_file_out
 from helpers.style.display import display
 from helpers.style.complete import complete
 
+# Summary
+from summary import summary_sub
+
+# Clear
+from helpers.clear import clear_screen
+
 def main():
 
-    # Display a display menu. AI designed the display.
+    
     users_selection = display()
 
     if users_selection == 1:
         
-        # Get Route Info
-        route = run_os_route()
-        
-        # Get Address Info
-        address = run_os_address()
-        
-        # Get Interface Info
-        interface = run_os_link()
+        try:
+            # Get Route Info
+            route = run_os_route()
+            
+            # Get Address Info
+            address = run_os_address()
+            
+            # Get Interface Info
+            interface = run_os_link()
 
-        # Format the data
-        big_data = format_os_info(interface, address, route)
+            # Format the data
+            big_data = format_os_info(interface, address, route)
 
-        # Data out ==> File
-        os_file_out(big_data)
+            # Data out ==> File
+            os_file_out(big_data)
+
+        except:
+            print("Banjaxed somewhere, call the admin..")
 
     elif users_selection == 2:
-    
-        # All command here, not modular yet
-        subprocess_data = run_sub_interface()
-    
-        # Data Out ==> File
-        sub_file_out(subprocess_data)
         
+        try:
+            # All command here, not modular yet
+            subprocess_data = run_sub_interface()
+        
+            # Data Out ==> File
+            sub_file_out(subprocess_data)
+
+            
+
+        except:
+            print("Banjaxed somewhere, call the admin..")
+
     elif users_selection == 3:
     
-        # All command here, not modular yet
-        pexpect_data = run_pexpect_interface()
-        
-        # Data Out ==> File
-        pexpect_file_out(pexpect_data)
-    
+        try:
+            # All command here, not modular yet
+            pexpect_data = run_pexpect_interface()
+            
+            # Data Out ==> File
+            pexpect_file_out(pexpect_data)
+
+        except:
+            print("Banjaxed somewhere, call the admin..")
+
     elif users_selection == 0:
         print("Shutting down NetaMon...")
         sys.exit(0)
+
+    # clear    
+    clear_screen() 
         
-        
-        
-    # Confirmation display, AI designed display    
+       
     if users_selection in [1, 2, 3]:
+        
         complete(users_selection)
+        time.sleep(5)
+        clear_screen()
+        if users_selection == 2:
+            summary_sub()
         
 
 if __name__ == "__main__":

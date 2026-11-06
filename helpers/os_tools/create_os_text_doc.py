@@ -10,23 +10,29 @@ def create_os_text_doc():
 
         f.write("NETAMON NETWORK REPORT\n")
         f.write("======================\n")
+        f.write("[*] Checking interfaces!\n")
+        f.write("======================\n")
+
 
         # get hostname
 
         hostname = data.get("hostname")
 
+
         if hostname:
 
             f.write("[+] Hostname: " + hostname + "\n")
+            f.write("======================\n")
 
         else:
 
             f.write("[-] Hostname not found!\n")
+            f.write("======================\n")
+
 
 
         for interface in data["interfaces"]:
 
-            f.write("[*] Checking interfaces!\n")
 
             # get interface
 
@@ -78,6 +84,11 @@ def create_os_text_doc():
             else:
 
                 f.write("[-] " + operation_state + "\n")
+
+
+            f.write("======================\n")
+
+            
 
 
 create_os_text_doc()

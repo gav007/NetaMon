@@ -1,0 +1,4 @@
+import subprocess
+
+def clear_screen():
+    subprocess.run(["clear"])

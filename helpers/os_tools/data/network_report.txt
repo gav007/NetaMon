@@ -1,13 +1,16 @@
 NETAMON NETWORK REPORT
 ======================
-[+] Hostname: UbuntuGav
 [*] Checking interfaces!
+======================
+[+] Hostname: UbuntuGav
+======================
 [+] Interface: lo
 [+] MAC: 00:00:00:00:00:00
 [+] MTU: 65536
 [-] UNKNOWN
-[*] Checking interfaces!
+======================
 [+] Interface: enp0s3
 [+] MAC: 08:00:27:93:1c:a4
 [+] MTU: 1500
 [+] Operation State: UP
+======================

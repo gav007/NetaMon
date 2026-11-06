@@ -1,0 +1,41 @@
+{
+    "hostname": "UbuntuGav",
+    "interface": [
+        {
+            "name": "lo",
+            "mtu": 65536,
+            "mac": "00:00:00:00:00:00",
+            "flags": [
+                "LOOPBACK",
+                "UP",
+                "LOWER_UP"
+            ],
+            "state": "UNKNOWN",
+            "ipv4": [
+                "127.0.0.1"
+            ],
+            "ipv6": [
+                "::1"
+            ]
+        },
+        {
+            "name": "enp0s3",
+            "mtu": 1500,
+            "mac": "08:00:27:93:1c:a4",
+            "flags": [
+                "BROADCAST",
+                "MULTICAST",
+                "UP",
+                "LOWER_UP"
+            ],
+            "state": "UP",
+            "ipv4": [
+                "10.0.2.15"
+            ],
+            "ipv6": [
+                "fd17:625c:f037:2:a00:27ff:fe93:1ca4",
+                "fe80::a00:27ff:fe93:1ca4"
+            ]
+        }
+    ]
+}

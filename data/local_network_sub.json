@@ -1,17 +1,17 @@
 {
     "hostname": "UbuntuGav",
-    "interfaces": [
+    "interface": [
         {
-            "ifname": "lo",
+            "name": "lo",
+            "mtu": 65536,
+            "mac": "00:00:00:00:00:00",
             "flags": [
                 "LOOPBACK",
                 "UP",
                 "LOWER_UP"
             ],
-            "mtu": 65536,
-            "operstate": "UNKNOWN",
-            "address": "00:00:00:00:00:00",
-            "addr_info": [
+            "state": "UNKNOWN",
+            "ip_addresses": [
                 {
                     "family": "inet",
                     "local": "127.0.0.1",
@@ -22,25 +22,25 @@
                     "local": "::1",
                     "prefixlen": 128
                 }
-            ]
+            ],
+            "routes": []
         },
         {
-            "ifname": "enp0s3",
+            "name": "enp0s3",
+            "mtu": 1500,
+            "mac": "08:00:27:93:1c:a4",
             "flags": [
                 "BROADCAST",
                 "MULTICAST",
                 "UP",
                 "LOWER_UP"
             ],
-            "mtu": 1500,
-            "operstate": "UP",
-            "address": "08:00:27:93:1c:a4",
-            "addr_info": [
+            "state": "UP",
+            "ip_addresses": [
                 {
                     "family": "inet",
                     "local": "10.0.2.15",
-                    "prefixlen": 24,
-                    "broadcast": "10.0.2.255"
+                    "prefixlen": 24
                 },
                 {
                     "family": "inet6",
@@ -52,18 +52,19 @@
                     "local": "fe80::a00:27ff:fe93:1ca4",
                     "prefixlen": 64
                 }
+            ],
+            "routes": [
+                {
+                    "destination": "default",
+                    "gateway": "10.0.2.2",
+                    "protocol": "dhcp"
+                },
+                {
+                    "destination": "10.0.2.0/24",
+                    "gateway": null,
+                    "protocol": "kernel"
+                }
             ]
-        }
-    ],
-    "routes": [
-        {
-            "dst": "default",
-            "gateway": "10.0.2.2",
-            "dev": "enp0s3"
-        },
-        {
-            "dst": "10.0.2.0/24",
-            "dev": "enp0s3"
         }
     ]
 }
