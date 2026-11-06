@@ -10,16 +10,16 @@ from helpers.subprocess_tools.sub_file_out import sub_file_out
 
 # OS Tools
 
-from helpers.os_tools.format_os_info import format_os_info
-from helpers.os_tools.os_address_run import run_os_address
-from helpers.os_tools.os_link_run import run_os_link
-from helpers.os_tools.os_route_run import run_os_route
-from helpers.os_tools.os_file_out import os_file_out
+#from helpers.os_tools.format_os_info import format_os_info
+#from helpers.os_tools.os_address_run import run_os_address
+#from helpers.os_tools.os_link_run import run_os_link
+#from helpers.os_tools.os_route_run import run_os_route
+#from helpers.os_tools.os_file_out import os_file_out
 
 # Pexpect Tools
 
-from helpers.pexpect_tools.pexpect_interface import run_pexpect_interface
-from helpers.pexpect_tools.pexpect_file_out import pexpect_file_out
+#from helpers.pexpect_tools.pexpect_interface import run_pexpect_interface
+#from helpers.pexpect_tools.pexpect_file_out import pexpect_file_out
 
 # Style
 
@@ -33,7 +33,7 @@ from summary import summary_sub
 from helpers.clear import clear_screen
 
 def main():
-
+    # TESTING OTHER PROCESSES
     # if users_selection == 1:
         
     #     try:
@@ -90,6 +90,7 @@ def main():
     time.sleep(5)
 
     clear_screen()
+
     try:
         # All command here, not modular yet
         subprocess_data = run_sub_interface()

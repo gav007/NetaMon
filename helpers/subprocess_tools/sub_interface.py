@@ -29,44 +29,44 @@ def run_sub_interface():
     host = host_command.stdout.strip()
     #print(host)
     
-    interfaces = {
+    network_data = {
              "hostname": "",
               "interface": []
              }
 
-    interfaces["hostname"]=host
+    network_data["hostname"]=host
     
 
     for link in link_result:
 
-        interface = {}
+        interface_info = {}
         
         # build the interface with the link_result data
         # .get() returns the value when given the key
 
-        interface["name"]=link.get("ifname")
-        interface["mtu"]=link.get("mtu")
-        interface["mac"]=link.get("address")
-        interface["flags"]=link.get("flags")
-        interface["state"]=link.get("operstate")
+        interface_info["name"]=link.get("ifname")
+        interface_info["mtu"]=link.get("mtu")
+        interface_info["mac"]=link.get("address")
+        interface_info["flags"]=link.get("flags")
+        interface_info["state"]=link.get("operstate")
 
         # build the interface with the address_result data
-        interface["ip_addresses"]=[]
+        interface_info["ip_addresses"]=[]
 
         for address in address_result:
-            if address["ifname"] == interface["name"]:
+            if address["ifname"] == interface_info["name"]:
                 for ip in address["addr_info"]:
                     ips = {}
                     ips["family"]=ip["family"]
                     ips["local"]=ip["local"]
                     ips["prefixlen"]=ip["prefixlen"]
-                    interface["ip_addresses"].append(ips)
+                    interface_info["ip_addresses"].append(ips)
         
         # get the route info data
-        interface["routes"]=[]
+        interface_info["routes"]=[]
 
         for route in route_result:
-            if route["dev"] == interface["name"]:
+            if route["dev"] == interface_info["name"]:
 
                 route_info = {}
 
@@ -74,11 +74,11 @@ def run_sub_interface():
                 route_info["gateway"]=route.get("gateway")
                 route_info["protocol"]=route.get("protocol")
 
-                interface["routes"].append(route_info)
+                interface_info["routes"].append(route_info)
 
-        interfaces["interface"].append(interface)
-    #print(json.dumps(interfaces,indent=4))
+        network_data["interface"].append(interface_info)
+    #print(json.dumps(network_data,indent=4))
 
-    return interfaces
+    return network_data
 
 #run_sub_interface()
