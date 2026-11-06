@@ -1,7 +1,7 @@
 import json
 
 def summary_sub():
-    with open("data/local_network_sub.json", "r") as f:
+    with open("data/local_network.json", "r") as f:
         data = json.load(f)
         #print(data)
         hostname = data.get("hostname")
